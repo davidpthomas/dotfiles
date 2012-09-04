@@ -1,3 +1,3 @@
 #
-# dotfiles for davidpthomas
+# My dotfiles for tmux, vim, readline, and more...
 #
