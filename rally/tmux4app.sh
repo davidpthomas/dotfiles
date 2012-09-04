@@ -5,11 +5,6 @@
 # project is name of current directory
 TMUX_BIN=$(which tmux)
 
-RALLY_SERVER_URL=""
-RALLY_SERVER_USERNAME=""
-RALLY_SERVER_PASSWORD=""
-RALLY_SERVER_PORT=""
-
 # window names
 SHELL_WINDOW="shell"
 LOG_CONSOLE_WINDOW="log"
