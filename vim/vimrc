@@ -134,6 +134,6 @@ nmap ,sp :call SavePosition()<CR>
 nmap ,ic :call InsertComment()<CR>
 
 " Rally Development
-"  source /home/dthomas/.vimrc_rally_rake
-source /home/dthomas/.vimrc_rabt_coffee
+source /home/dthomas/.vimrc.rally_rake
+"source /home/dthomas/.vimrc.rabt_coffee
 
