@@ -38,6 +38,6 @@ function ExecCmd(cmd, task)
   endtry
 endfunction
 
-nmap \rb :call RallyRake("build", 0)<CR>
-nmap \rd :call RallyRake("deploy", 0)<CR>
+nmap \rb :call RallyRake("build")<CR>
+nmap \rd :call RallyRake("deploy")<CR>
 

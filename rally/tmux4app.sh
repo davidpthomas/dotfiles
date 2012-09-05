@@ -9,7 +9,7 @@ TMUX_BIN=$(which tmux)
 SHELL_WINDOW="shell"
 LOG_CONSOLE_WINDOW="log"
 LOG_ERROR_WINDOW="error"
-DOC_WINDOW="documentation"
+DOC_WINDOW="docs"
 DEV_WINDOW="dev"
 CSS_WINDOW="css"
 
