@@ -68,16 +68,17 @@ function tmux {
   fi
 
   # all files/dirs must be present to identify a Rabt based project
-  for elem in Rakefile README.md config.json deploy.json App.js app.css; do
+  for elem in Rakefile config.json deploy.json App.js app.css; do
     
     # not found; launch tmux
     if [ ! -f "${PWD}/${elem}" -a ! -d "${PWD}/${elem}" ]; then
+      echo "Launching native tmux..."
       ${TMUX_BIN} $@      # pass along any native tmux args
       return
     fi
   done
 
-  # all rabt files found, lets launch tmux4app!
+  # all rally rake files found, lets launch tmux4app!
   tmux4app
 }
 
