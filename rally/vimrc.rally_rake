@@ -18,7 +18,7 @@ function RallyRake(task)
   try
     call ExecCmd("echo \"---[$(date)]---\" >> rake.log", "log")
     echon "[Rally Rake] Performing " . a:task . "..."
-    call ExecCmd("rake " . a:task . " >> rake.log 2>>&1", a:task)
+    call ExecCmd("rake " . a:task . " 2>&1 >> rake.log", a:task)
 
     echon "Refreshing browser..."
     call ExecCmd("echo 'BrowserReload();' | nc -q 1 localhost 4242 > /dev/null 2>&1 &", "browser reload")
