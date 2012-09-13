@@ -19,13 +19,12 @@ function config_tmux_session {
 
   # set name of initial window
   ${TMUX_BIN} rename-window -t "${RALLY_PROJECT}" "${SHELL_WINDOW}"
-  # create console logging window
-  ${TMUX_BIN} new-window -t "${RALLY_PROJECT}" -n "${LOG_CONSOLE_WINDOW}"
-  ${TMUX_BIN} send-keys -t "${RALLY_PROJECT}" 'tail -f rake.log' C-m
   # create 'documentation' window
   ${TMUX_BIN} new-window -t "${RALLY_PROJECT}" -n "${DOC_WINDOW}"
   ${TMUX_BIN} send-keys -t "${RALLY_PROJECT}" 'vim README.md' C-m
-
+  # create console logging window
+  ${TMUX_BIN} new-window -t "${RALLY_PROJECT}" -n "${LOG_CONSOLE_WINDOW}"
+  ${TMUX_BIN} send-keys -t "${RALLY_PROJECT}" 'tail -f rake.log' C-m
   # create 'dev' window
   ${TMUX_BIN} new-window -t "${RALLY_PROJECT}" -n "${DEV_WINDOW}"
   ${TMUX_BIN} send-keys -t "${RALLY_PROJECT}" "vim App.js" C-m
@@ -68,16 +67,17 @@ function tmux {
   fi
 
   # all files/dirs must be present to identify a Rabt based project
-  for elem in Rakefile README.md config.json deploy.json App.js app.css; do
+  for elem in Rakefile config.json deploy.json App.js app.css; do
     
     # not found; launch tmux
     if [ ! -f "${PWD}/${elem}" -a ! -d "${PWD}/${elem}" ]; then
+      echo "Launching native tmux..."
       ${TMUX_BIN} $@      # pass along any native tmux args
       return
     fi
   done
 
-  # all rabt files found, lets launch tmux4app!
+  # all rally rake files found, lets launch tmux4app!
   tmux4app
 }
 

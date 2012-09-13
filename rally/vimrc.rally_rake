@@ -3,26 +3,28 @@
 "------------------------------------------------------------------------------
 
 " compile coffeescript on file save
-autocmd BufWritePost App.js call RallyRake("jslint")
+autocmd BufWritePost App.js call RallyRake("jslint", 0)
 
-" hot keys to launch rabt commands
-nmap \rb :call RallyRake("build")<CR>
-nmap \rd :call RallyRake("debug")<CR>
+" hot keys to launch rake commands
+nmap \rb :call RallyRake("build", 0)<CR>
+nmap \rd :call RallyRake("deploy", 1)<CR>
 
 " Show rally in status bar (prepend to existing)
 set laststatus=2
 set statusline^=[RallyRake]
 
 " Manage running Rake and reloading the browser
-function RallyRake(task)
+function RallyRake(task, deployFlag)
   try
     call ExecCmd("echo \"---[$(date)]---\" >> rake.log", "log")
     echon "[Rally Rake] Performing " . a:task . "..."
-    call ExecCmd("rake " . a:task . " >> rake.log 2>>&1", a:task)
+    call ExecCmd("rake " . a:task . " 2>&1 >> rake.log", a:task)
 
-    echon "Refreshing browser..."
-    call ExecCmd("echo 'BrowserReload();' | nc -q 1 localhost 4242 > /dev/null 2>&1 &", "browser reload")
-    echon "finished."
+    if a:deployFlag == 1
+      echon "Refreshing browser..."
+      call ExecCmd("echo 'BrowserReload();' | nc -q 1 localhost 4242 > /dev/null 2>&1 &", "browser reload")
+      echon "finished."
+    endif
   catch /.*/
     echon v:exception
   endtry
@@ -37,7 +39,4 @@ function ExecCmd(cmd, task)
     endif
   endtry
 endfunction
-
-nmap \rb :call RallyRake("build")<CR>
-nmap \rd :call RallyRake("deploy")<CR>
 
