@@ -137,3 +137,6 @@ nmap ,ic :call InsertComment()<CR>
 source /home/dthomas/.vimrc.rally_rake
 "source /home/dthomas/.vimrc.rabt_coffee
 
+
+nmap ,ts a<C-R>=strftime("%Y/%m/%d: ")<CR>
+imap ,ts <C-R>=strftime("%Y/%m/%d: ")<CR>
