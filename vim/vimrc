@@ -140,3 +140,6 @@ source /home/dthomas/.vimrc.rally_rake
 
 nmap ,ts a<C-R>=strftime("%Y/%m/%d: ")<CR>
 imap ,ts <C-R>=strftime("%Y/%m/%d: ")<CR>
+
+" CTRL-A selects all in terminal vim and sets in clipboard
+nmap <C-a> ggVG"+y<CR>
