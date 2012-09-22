@@ -17,8 +17,8 @@ rvm use 1.9.2
 # TMUX
 # -----------------------------------------------------------------------------
 # TMUX completion
-if [ -f ~/.bash_completion_tmux.sh ]; then
-    . ~/.bash_completion_tmux.sh
+if [ -f ~/.bash_completion.tmux ]; then
+    . ~/.bash_completion.tmux
 fi
 
 # TMUX color config
