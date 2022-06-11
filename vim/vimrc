@@ -139,4 +139,3 @@ imap ,ts <C-R>=strftime("%Y/%m/%d: ")<CR>
 " CTRL-A selects all in terminal vim and sets in clipboard
 nmap <C-a> mzggVG"+y'z<CR>
 
-autocmd BufWritePost * normal mzggVG"+y'z"<CR>
