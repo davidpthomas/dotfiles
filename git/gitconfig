@@ -1,10 +1,10 @@
 [user]
-	name = David P Thomas
-	email = davidpthomas@gmail.com
+  name = David P Thomas
+  email = davidpthomas@gmail.com
 [core]
-	editor = vim
+  editor = vim
 [merge]
-	tool = vimdiff
+  tool = vimdiff
 [alias]
-	unstage = reset HEAD
-	stat = status -s
+  unstage = reset HEAD
+  stat = status -s

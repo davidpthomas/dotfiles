@@ -1,7 +1,7 @@
 # flash screen instead of beeping
 set bell-style visible
 # prefix current CLI in vi mode with '# ' to comment out syntax
-set comment-begin # 
+set comment-begin #
 # ignore case during tab completion
 set completion-ignore-case on
 # vi, not emacs
