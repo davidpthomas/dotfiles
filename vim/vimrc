@@ -53,12 +53,13 @@ set textwidth=200
 " show line numbers
 set number
 " set favorite color scheme
-"colorscheme adaryn
-"colorscheme darkblue
-colorscheme default
-"colorscheme delek
-" colorscheme murphy
+" - light | dark
+set background=dark
+colorscheme gruvbox
+"colorscheme solarized
+"colorscheme default
 "colorscheme blue  " great for sunny days
+
 " max number of undo levels
 set undolevels=1000
 " number of characters to be typed before swap file written to
@@ -113,29 +114,4 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 if &diff
     set scrollbind
 endif
-
-"------------------------------------------------------------------------------
-" Code reviews
-"------------------------------------------------------------------------------
-" - open file to be reviewed in window #1
-" - open code-review file in window #2
-" - in file window, ",sp" will mark the file and line#
-" - switch to code-review file and ",ic" will create an file/line# entry for making a comment
-function SavePosition()
-    let g:file_name=expand("%:t")
-    let g:line_number=line(".")
-    let g:reviewer_initials="DPT"
-endfunction
-function InsertComment()
-    execute "normal i" . g:file_name . ":" . g:line_number . ":" . g:reviewer_initials . " -  "
-    startinsert
-endfunction
-nmap ,sp :call SavePosition()<CR>
-nmap ,ic :call InsertComment()<CR>
-
-nmap ,ts a<C-R>=strftime("%Y/%m/%d: ")<CR>
-imap ,ts <C-R>=strftime("%Y/%m/%d: ")<CR>
-
-" CTRL-A selects all in terminal vim and sets in clipboard
-nmap <C-a> mzggVG"+y'z<CR>
 
