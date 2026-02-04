@@ -10,6 +10,6 @@ source ~/.bash_prompt
 # cat [name].ascii.txt | gzip | base64 > [name].art
 # ln [name].art selected.art
 # uncompress and display ascii art!
-base64 -d<<<$(cat ~/art/selected.art) | gunzip
+#base64 -d<<<$(cat ~/art/selected.art) | gunzip
 
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
